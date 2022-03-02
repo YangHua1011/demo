@@ -1,0 +1,53 @@
+
+global
+    daemon
+
+
+#配置rabbitmq集群节点信息，n1、n3相同配置
+
+#配置一个监听实例rabbitmq_cluster
+listen rabbitmq_cluster
+timeout client  100m
+timeout queue   100m
+timeout server  300m
+timeout connect  3000m
+#监控端口
+bind 0.0.0.0:5670
+
+#配置TCP模式
+mode tcp
+
+#简单的轮询
+balance roundrobin
+
+#rabbitmq集群节点配置 
+server name190  192.168.100.190:5672 check inter 5000 rise 2 fall 2
+
+server name191  192.168.100.191:5672 check inter 5000 rise 2 fall 2
+
+
+
+#配置web端监控，查看统计信息
+###haproxy statistics monitor 
+
+listen statics 0.0.0.0:8888
+
+mode http
+timeout client  100m
+timeout queue   100m
+timeout server  300m
+
+log 127.0.0.1 local0 debug
+
+transparent
+
+#数据刷新频率
+stats refresh 60s
+
+#后台地址http://ip:8888/haproxy-stats
+stats uri / haproxy-stats
+
+stats realm Haproxy \ statistic
+
+#账号密码
+stats auth guest:guest
