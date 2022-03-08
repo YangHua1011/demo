@@ -7,7 +7,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @MapperScan("com.example.demo.dao")
-@EnableElasticsearchRepositories("com.example.demo.res")
+//@EnableElasticsearchRepositories("com.example.demo.res")
 public class DemoApplication {
 
     public static void main(String[] args) {

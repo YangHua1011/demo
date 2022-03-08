@@ -1,6 +1,5 @@
 spring:
-  elasticsearch:
-    uris: 42.192.131.53:9200
+  
   rabbitmq:
     listener:
       type: direct
