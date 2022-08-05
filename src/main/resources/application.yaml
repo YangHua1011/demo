@@ -4,7 +4,7 @@ spring:
     listener:
       type: direct
       direct:
-        acknowledge-mode: auto
+        acknowledge-mode: MANUAL
         prefetch: 1
         retry:
           enabled: true
@@ -16,3 +16,5 @@ spring:
     password: guest
     username: guest
     publisher-confirm-type: correlated
+    virtual-host: ysir
+    publisher-returns: true

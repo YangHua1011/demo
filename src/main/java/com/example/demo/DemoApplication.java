@@ -11,7 +11,9 @@ import tk.mybatis.spring.annotation.MapperScan;
 public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication app =new SpringApplication(DemoApplication.class);
+//        app.addListeners(new MyApplicationStartingEventListener());//加入自定义的监听类
+        app.run(args);
     }
 
 }
