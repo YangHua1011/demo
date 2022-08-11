@@ -2,8 +2,11 @@ package com.example.demo.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,63 +17,83 @@ public class MouldEntity implements Serializable{
 
 	@Id
     @Column(name = "id")
+	@Field(name = "id")
 	private Integer id;//素材id
 
     @Column(name = "cat3_id")
+	@Field(name = "cate_id",index = false,type = FieldType.Keyword)
 	private Integer cat3Id;//第三级分类id
 
     @Column(name = "name")
+	@Field(type = FieldType.Text,analyzer = "ik_max_word")
 	private String name;//素材名称
 
     @Column(name = "vimg")
+	@Field(name = "vimg",index = false,type = FieldType.Keyword)
 	private String vimg;//预览竖图
 
     @Column(name = "himg")
+	@Field(name = "himg",index = false,type = FieldType.Keyword)
 	private String himg;//预览横图
 
     @Column(name = "big_img")
+	@Field(name = "big_img",index = false,type = FieldType.Keyword)
 	private String bigImg;//详情大图
 
     @Column(name = "author")
+	@Field(name = "author",index = false,type = FieldType.Keyword)
 	private String author;//作者
 
     @Column(name = "copyright_desc")
+	@Field(name = "copyright_desc",index = false,type = FieldType.Keyword)
 	private String copyrightDesc;//版权说明，默认为空
 
     @Column(name = "commercial_desc")
+	@Field(name = "commercial_desc",index = false,type = FieldType.Keyword)
 	private String commercialDesc;//商用说明，默认为空
 
     @Column(name = "software")
+	@Field(name = "software",index = false,type = FieldType.Keyword)
 	private String software;//打开软件
 
     @Column(name = "format")
+	@Field(name = "format",index = false,type = FieldType.Keyword)
 	private String format;//格式
 
     @Column(name = "size")
+	@Field(name = "size",index = false,type = FieldType.Keyword)
 	private String size;//大小
 
     @Column(name = "upload_time")
+	@Field(name = "upload_time",index = false,type = FieldType.Keyword)
 	private Date uploadTime;//素材上传时间，秒级时间戳
 
     @Column(name = "tags")
+	@Field(name = "tags",type = FieldType.Text,analyzer = "ik_max_word")
 	private String tags;//标签，逗号(,)分隔
 
     @Column(name = "default_sort")
+	@Field(name = "default_sort",index = false,type = FieldType.Keyword)
 	private String defaultSort;//综合排序权值
 
     @Column(name = "popular_sort")
+	@Field(name = "popular_sort",index = false,type = FieldType.Keyword)
 	private String popularSort;//热门排序权值
 
     @Column(name = "download_url")
+	@Field(name = "download_url",index = false,type = FieldType.Keyword)
 	private String downloadUrl;//素材下载url
 
     @Column(name = "update_time")
+	@Field(name = "update_time",index = false,type = FieldType.Keyword)
 	private Date updateTime;//更新时间
 
     @Column(name = "cat2_id")
+	@Field(name = "cat2_id",index = false,type = FieldType.Keyword)
 	private Integer cat2Id;//
 
     @Column(name = "cat1_id")
+	@Field(name = "cat1_id",index = false,type = FieldType.Keyword)
 	private Integer cat1Id;//
 
 	public MouldEntity() {

@@ -1,20 +1,21 @@
 spring:
-  
-  rabbitmq:
-    listener:
-      type: direct
-      direct:
-        acknowledge-mode: MANUAL
-        prefetch: 1
-        retry:
-          enabled: true
-          max-attempts: 4
-          max-interval: 5000
-          initial-interval: 3000
-          multiplier: 2
-    addresses: 42.192.131.53:5672
-    password: guest
-    username: guest
-    publisher-confirm-type: correlated
-    virtual-host: ysir
-    publisher-returns: true
+#  rabbitmq:
+#    listener:
+#      type: direct
+#      direct:
+#        acknowledge-mode: MANUAL
+#        prefetch: 1
+#        retry:
+#          enabled: true
+#          max-attempts: 4
+#          max-interval: 5000
+#          initial-interval: 3000
+#          multiplier: 2
+#    addresses: 42.192.131.53:5672
+#    password: guest
+#    username: guest
+#    publisher-confirm-type: correlated
+#    virtual-host: ysir
+#    publisher-returns: true
+  elasticsearch:
+    uris: 42.192.131.53:9200
