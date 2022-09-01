@@ -3,7 +3,7 @@ package com.example.demo;
 public class QueryPage {
 
     /**
-     * 当前页
+     * 当前页 yoyo qikenao  0901
      */
     private Integer current;
 
